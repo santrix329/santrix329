@@ -15,12 +15,9 @@ class Registro {
             cout << " Ingresa el nombre completo del estudiante " << endl;
             cin.ignore();
             getline(cin, nombre);
-            
-            
-            cout << " Ingresa la cedula del estudiante " << endl;
+            cout << " Ingresa la cedula del estudiante, (8 digitos)" << endl;
             cin >> cedula;
-            
-            cout << " Ingresa la edad del estudiante " << endl;
+            cout << " Ingresa la edad del estudiante, (de 9 a 18) " << endl;
             cin >> edad;
             
 
@@ -55,11 +52,15 @@ class Registro {
                 return false;
             }
         }
+
+        
+        
 };
 
 
 
 int main() {
+    int opcion;
     int cantidad;
     cout << " Cuantos estudiantes vas  registrar? \n";
     cin >> cantidad;
@@ -81,6 +82,40 @@ int main() {
         estudiantes[i].mostrarDatos();
     }
     delete[] estudiantes;
+   
+system("cls");
+    cout << "\n Revision de estudiantes\n";
+
+for (int i = 0; i < cantidad; i++) {
+    int decision;
+    
+    cout << "\n  Estudiante " << (i + 1) << endl;
+    estudiantes[i].mostrarDatos();
+    
+    cout << "\nQue desea hacer con este estudiante?\n";
+    cout << "1. Mantener en la lista\n";
+    cout << "2. Eliminar de la lista\n";
+    cout << "Opcion: ";
+    cin >> decision;
+    cin.ignore();
+    
+    if (decision == 2) {
+        
+        for (int j = i; j < cantidad - 1; j++) {
+            estudiantes[j] = estudiantes[j + 1];
+        }
+        cantidad--;  
+        
+        cout << "Estudiante eliminado.\n";
+    }
+}
+
+
+cout << "\n lista final de estudiantes\n";
+for (int i = 0; i < cantidad; i++) {
+    cout << " Estudiante " << (i + 1)  << endl;
+    estudiantes[i].mostrarDatos();
+}
+
     return 0;
 }
-    
