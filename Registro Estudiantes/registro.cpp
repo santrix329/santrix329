@@ -90,8 +90,8 @@ for (int i = 0; i < cantidad; i++) {
     int decision;
     
     cout << "\n  Estudiante " << (i + 1) << endl;
-    estudiantes[i].mostrarDatos();
-    
+    estudiantes[i].mostrarDatos();         // seria en esta parte, cuando llamo a la funcion donde ya se guardo nos datos, no aparece
+                                           // el nombre del primer estudiante, los demas estudiantes si aparecen correctamente
     cout << "\nQue desea hacer con este estudiante?\n";
     cout << "1. Mantener en la lista\n";
     cout << "2. Eliminar de la lista\n";
